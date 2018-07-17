@@ -8,6 +8,12 @@ const Session = bookshelf.Model.extend({
   initialize: function() {
   },
   hasTimestamps: true,
+  hands: function() {
+    return this.hasMany('Hands');
+  },
+  tables: function() {
+    return this.hasMany('Tables');
+  },
 });
 
 module.exports = bookshelf.model('Session', Session);

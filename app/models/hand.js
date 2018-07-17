@@ -8,6 +8,12 @@ const Hand = bookshelf.Model.extend({
   initialize: function() {
   },
   hasTimestamps: true,
+  session: function() {
+    return this.belongsTo('Session');
+  },
+  table: function() {
+    return this.belongsTo('Table');
+  },
 });
 
 module.exports = bookshelf.model('Hand', Hand);
