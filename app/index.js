@@ -28,107 +28,20 @@ console.log(`Running in environment: ${ENV}`);
 
 // ***** Models ***** //
 
-const Comment = require('./models/comment');
-const Post = require('./models/post');
-const User = require('./models/user');
+const Hand = require('./models/hand');
 
 /// ***** Passport Strategies & Helpers ***** //
 
-passport.use(new LocalStrategy((username, password, done) => {
-  User
-    .forge({ username: username })
-    .fetch()
-    .then((usr) => {
-      if (!usr) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      usr.validatePassword(password).then((valid) => {
-        if (!valid) {
-          return done(null, false, { message: 'Invalid password.' });
-        }
-        return done(null, usr);
-      });
-    })
-    .catch((err) => {
-      return done(err);
-    });
-}));
-
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(user, done) {
-  User
-    .forge({id: user})
-    .fetch()
-    .then((usr) => {
-      done(null, usr);
-    })
-    .catch((err) => {
-      done(err);
-    });
-});
-
-const isAuthenticated = (req, res, done) => {
-  if (req.isAuthenticated()) {
-    return done();
-  }
-  res.redirect('/login');
-};
 
 // ***** Server ***** //
 
-app.get('/user/:id', isAuthenticated, (req,res) => {
-  User
-    .forge({id: req.params.id})
-    .fetch()
-    .then((usr) => {
-      if (_.isEmpty(usr))
-        return res.sendStatus(404);
-      res.send(usr);
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.sendStatus(500);
-    });
-});
 
-app.post('/user', (req, res) => {
-  if (_.isEmpty(req.body))
-    return res.sendStatus(400);
-  User
-    .forge(req.body)
-    .save()
-    .then((usr) => {
-      res.send({id: usr.id});
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.sendStatus(500);
-    });
-});
-
-app.get('/posts', isAuthenticated, (req, res) => {
-  Post
+app.get('/hands', (req, res) => {
+  Hand
     .collection()
     .fetch()
-    .then((posts) => {
-      res.send(posts);
-    })
-    .catch((error) => {
-      res.sendStatus(500);
-    });
-});
-
-app.get('/post/:id', isAuthenticated, (req,res) => {
-  Post
-    .forge({id: req.params.id})
-    .fetch({withRelated: ['author', 'comments']})
-    .then((post) => {
-      if (_.isEmpty(post))
-        return res.sendStatus(404);
-      res.send(post);
+    .then((hands) => {
+      res.json(hands);
     })
     .catch((error) => {
       console.error(error);
@@ -136,49 +49,35 @@ app.get('/post/:id', isAuthenticated, (req,res) => {
     });
 });
 
-app.post('/post', isAuthenticated, (req, res) => {
+app.get('/hand/:id', (req,res) => {
+  Hand
+    .forge({id: req.params.id})
+    .fetch(//{withRelated: ['author', 'comments']})
+   ).then((hand) => {
+      if (_.isEmpty(hand))
+        return res.sendStatus(404);
+      res.json(hand);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+app.post('/hand', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
-  Post
+  Hand
     .forge(req.body)
     .save()
-    .then((post) => {
-      res.send({id: post.id});
+    .then((hand) => {
+      res.json({id: hand.id});
     })
     .catch((error) => {
       console.error(error);
       return res.sendStatus(500);
     });
 });
-
-app.post('/comment', isAuthenticated, (req, res) => {
-  if (_.isEmpty(req.body))
-    return res.sendStatus(400);
-  Comment
-    .forge(req.body)
-    .save()
-    .then((comment) => {
-      res.send({id: comment.id});
-    })
-    .catch((error) => {
-      console.error(error);
-      res.sendStatus(500);
-    });
-});
-
-app.get('/login', (req, res) => {
-  res.render('login', { message: req.flash('error') });
-});
-
-app.post('/login',
-  passport.authenticate('local', {
-    failureRedirect: '/login',
-    failureFlash: true
-  }),
-  function(req, res) {
-    res.redirect('/posts');
-  });
-
 
 // Exports for Server Hoisting.
 
