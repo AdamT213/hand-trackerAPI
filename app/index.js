@@ -15,6 +15,8 @@ const db = knex(config[ENV]);
 
 // Initialize Express.
 const app = express();
+var router = express.Router();
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(session({ secret: 'some secret' }));
@@ -22,6 +24,7 @@ app.use(flash());
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/api', router);
 
 // Configure & Initialize Bookshelf & Knex.
 console.log(`Running in environment: ${ENV}`);
@@ -36,7 +39,7 @@ const Hand = require('./models/hand');
 // ***** Server ***** //
 
 
-app.get('/hands', (req, res) => {
+router.get('/hands', (req, res) => {
   Hand
     .collection()
     .fetch()
@@ -49,7 +52,7 @@ app.get('/hands', (req, res) => {
     });
 });
 
-app.get('/hand/:id', (req,res) => {
+router.get('/hand/:id', (req,res) => {
   Hand
     .forge({id: req.params.id})
     .fetch(//{withRelated: ['author', 'comments']})
@@ -64,7 +67,7 @@ app.get('/hand/:id', (req,res) => {
     });
 });
 
-app.post('/hand', (req, res) => {
+router.post('/hands', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
   Hand
