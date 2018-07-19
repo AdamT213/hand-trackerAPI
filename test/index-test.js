@@ -95,7 +95,7 @@ describe('app', function() {
       })
  
       /** This is new! */
-      it('succeeds with valid session values', function(done) {
+      it('succeeds with valid table values', function(done) {
         supertest(server).
           post('/api/tables').
           send({

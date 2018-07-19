@@ -15,7 +15,7 @@ const mockHand = {
   playersToTurn: 3,
   playersToRiver: 2,
   playersToShowdown: 2,
-  status: 1,
+  status: true,
   potSize: 2.5,
   holeCards: 'Jd Js',
   flop: 'Jc Qh Kd',
@@ -67,7 +67,7 @@ describe('Hand', function() {
         expect(hand.get('playersToShowdown')).to.equal(mockHand.playersToShowdown) 
         expect(hand.get('status')).to.be.a('boolean')
         expect(hand.get('status')).to.equal(mockHand.status) 
-        expect(hand.get('potSize')).to.be.a('float')
+        expect(hand.get('potSize')).to.be.a('number')
         expect(hand.get('potSize')).to.equal(mockHand.potSize) 
         expect(hand.get('holeCards')).to.be.a('string')
         expect(hand.get('holeCards')).to.equal(mockHand.holeCards)

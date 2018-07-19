@@ -6,7 +6,6 @@ const Session = require('../../app/models/session')
 const expect = chai.expect 
 
 const mockSession = { 
-  id: 1,
   duration: 45,
   status: false,
   amount: 7.5,

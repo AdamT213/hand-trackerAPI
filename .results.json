@@ -2,37 +2,34 @@
   "stats": {
     "suites": 11,
     "tests": 10,
-    "passes": 5,
+    "passes": 10,
     "pending": 0,
-    "failures": 5,
-    "start": "2018-07-19T20:41:50.897Z",
-    "end": "2018-07-19T20:41:51.260Z",
-    "duration": 363
+    "failures": 0,
+    "start": "2018-07-19T21:25:37.163Z",
+    "end": "2018-07-19T21:25:37.503Z",
+    "duration": 340
   },
   "tests": [
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 2,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 31,
+      "duration": 35,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 86,
+      "duration": 61,
       "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 200 \"OK\", got 500 \"Internal Server Error\""
-      }
+      "err": {}
     },
     {
       "title": "fails with an empty request body",
@@ -51,160 +48,60 @@
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 5,
-      "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
-      }
-    },
-    {
-      "title": "succeeds with valid session values",
-      "fullTitle": "app /api/tables POST succeeds with valid session values",
       "duration": 3,
       "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 200 \"OK\", got 404 \"Not Found\""
-      }
+      "err": {}
+    },
+    {
+      "title": "succeeds with valid table values",
+      "fullTitle": "app /api/tables POST succeeds with valid table values",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 4,
+      "duration": 7,
       "currentRetry": 0,
-      "err": {
-        "stack": "error: insert or update on table \"hands\" violates foreign key constraint \"hands_table_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
-        "message": "insert into \"hands\" (\"created_at\", \"flop\", \"flopBet\", \"holeCards\", \"playersToFlop\", \"playersToRiver\", \"playersToShowdown\", \"playersToTurn\", \"position\", \"potSize\", \"preFlopRaise\", \"river\", \"riverBet\", \"session_id\", \"status\", \"table_id\", \"turn\", \"turnBet\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) returning \"id\" - insert or update on table \"hands\" violates foreign key constraint \"hands_table_id_foreign\"",
-        "name": "error",
-        "length": 245,
-        "severity": "ERROR",
-        "code": "23503",
-        "detail": "Key (table_id)=(1) is not present in table \"tables\".",
-        "schema": "public",
-        "table": "hands",
-        "constraint": "hands_table_id_foreign",
-        "file": "ri_triggers.c",
-        "line": "3324",
-        "routine": "ri_ReportViolation"
-      }
+      "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Session saves a record to the database",
-      "duration": 3,
+      "duration": 34,
       "currentRetry": 0,
-      "err": {
-        "stack": "error: duplicate key value violates unique constraint \"sessions_pkey\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
-        "message": "insert into \"sessions\" (\"amount\", \"created_at\", \"duration\", \"id\", \"status\", \"updated_at\") values ($1, $2, $3, $4, $5, $6) returning \"id\" - duplicate key value violates unique constraint \"sessions_pkey\"",
-        "name": "error",
-        "length": 182,
-        "severity": "ERROR",
-        "code": "23505",
-        "detail": "Key (id)=(1) already exists.",
-        "schema": "public",
-        "table": "sessions",
-        "constraint": "sessions_pkey",
-        "file": "nbtinsert.c",
-        "line": "432",
-        "routine": "_bt_check_unique"
-      }
+      "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Table saves a record to the database",
-      "duration": 34,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     }
   ],
   "pending": [],
-  "failures": [
-    {
-      "title": "succeeds with valid hand values",
-      "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 86,
-      "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 200 \"OK\", got 500 \"Internal Server Error\""
-      }
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 5,
-      "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
-      }
-    },
-    {
-      "title": "succeeds with valid session values",
-      "fullTitle": "app /api/tables POST succeeds with valid session values",
-      "duration": 3,
-      "currentRetry": 0,
-      "err": {
-        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
-        "message": "expected 200 \"OK\", got 404 \"Not Found\""
-      }
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Hand saves a record to the database",
-      "duration": 4,
-      "currentRetry": 0,
-      "err": {
-        "stack": "error: insert or update on table \"hands\" violates foreign key constraint \"hands_table_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
-        "message": "insert into \"hands\" (\"created_at\", \"flop\", \"flopBet\", \"holeCards\", \"playersToFlop\", \"playersToRiver\", \"playersToShowdown\", \"playersToTurn\", \"position\", \"potSize\", \"preFlopRaise\", \"river\", \"riverBet\", \"session_id\", \"status\", \"table_id\", \"turn\", \"turnBet\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) returning \"id\" - insert or update on table \"hands\" violates foreign key constraint \"hands_table_id_foreign\"",
-        "name": "error",
-        "length": 245,
-        "severity": "ERROR",
-        "code": "23503",
-        "detail": "Key (table_id)=(1) is not present in table \"tables\".",
-        "schema": "public",
-        "table": "hands",
-        "constraint": "hands_table_id_foreign",
-        "file": "ri_triggers.c",
-        "line": "3324",
-        "routine": "ri_ReportViolation"
-      }
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Session saves a record to the database",
-      "duration": 3,
-      "currentRetry": 0,
-      "err": {
-        "stack": "error: duplicate key value violates unique constraint \"sessions_pkey\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
-        "message": "insert into \"sessions\" (\"amount\", \"created_at\", \"duration\", \"id\", \"status\", \"updated_at\") values ($1, $2, $3, $4, $5, $6) returning \"id\" - duplicate key value violates unique constraint \"sessions_pkey\"",
-        "name": "error",
-        "length": 182,
-        "severity": "ERROR",
-        "code": "23505",
-        "detail": "Key (id)=(1) already exists.",
-        "schema": "public",
-        "table": "sessions",
-        "constraint": "sessions_pkey",
-        "file": "nbtinsert.c",
-        "line": "432",
-        "routine": "_bt_check_unique"
-      }
-    }
-  ],
+  "failures": [],
   "passes": [
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 2,
+      "duration": 1,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 31,
+      "duration": 35,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "succeeds with valid hand values",
+      "fullTitle": "app /api/hands POST succeeds with valid hand values",
+      "duration": 61,
       "currentRetry": 0,
       "err": {}
     },
@@ -223,9 +120,37 @@
       "err": {}
     },
     {
+      "title": "fails with an empty request body",
+      "fullTitle": "app /api/tables POST fails with an empty request body",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "succeeds with valid table values",
+      "fullTitle": "app /api/tables POST succeeds with valid table values",
+      "duration": 6,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Hand saves a record to the database",
+      "duration": 7,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Session saves a record to the database",
+      "duration": 34,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
       "title": "saves a record to the database",
       "fullTitle": "Table saves a record to the database",
-      "duration": 34,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     }

@@ -33,6 +33,7 @@ console.log(`Running in environment: ${ENV}`);
 
 const Hand = require('./models/hand');
 const Session = require('./models/session');
+const Table = require('./models/table');
 /// ***** Passport Strategies & Helpers ***** //
 
 
@@ -55,8 +56,8 @@ router.get('/hands', (req, res) => {
 router.get('/hand/:id', (req,res) => {
   Hand
     .forge({id: req.params.id})
-    .fetch(//{withRelated: ['author', 'comments']})
-   ).then((hand) => {
+    .fetch({withRelated: ['session', 'table']})
+    .then((hand) => {
       if (_.isEmpty(hand))
         return res.sendStatus(404);
       res.json(hand);
@@ -118,6 +119,49 @@ router.post('/sessions', (req, res) => {
     .save()
     .then((session) => {
       res.json({id: session.id});
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/tables', (req, res) => {
+  Table
+    .collection()
+    .fetch()
+    .then((tables) => {
+      res.json(tables);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/table/:id', (req,res) => {
+  Table
+    .forge({id: req.params.id})
+    .fetch({withRelated: ['session', 'hands']})
+    .then((table) => {
+      if (_.isEmpty(table))
+        return res.sendStatus(404);
+      res.json(table);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.post('/tables', (req, res) => {
+  if(_.isEmpty(req.body))
+    return res.sendStatus(400);
+  Table
+    .forge(req.body)
+    .save()
+    .then((table) => {
+      res.json({id: table.id});
     })
     .catch((error) => {
       console.error(error);

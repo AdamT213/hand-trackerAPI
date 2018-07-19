@@ -6,7 +6,6 @@ const Table = require('../../app/models/table')
 const expect = chai.expect 
 
 const mockTable = { 
-  id: 1,
   buyin: 50,
   size: 5,
   capacity: 6,
