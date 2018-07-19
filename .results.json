@@ -1,33 +1,33 @@
 {
   "stats": {
-    "suites": 5,
-    "tests": 4,
-    "passes": 2,
+    "suites": 7,
+    "tests": 6,
+    "passes": 3,
     "pending": 0,
-    "failures": 2,
-    "start": "2018-07-19T19:11:26.814Z",
-    "end": "2018-07-19T19:11:27.079Z",
-    "duration": 265
+    "failures": 3,
+    "start": "2018-07-19T20:00:52.350Z",
+    "end": "2018-07-19T20:00:52.656Z",
+    "duration": 306
   },
   "tests": [
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 1,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 32,
+      "duration": 58,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 68,
+      "duration": 47,
       "currentRetry": 0,
       "err": {
         "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
@@ -37,11 +37,50 @@
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 0,
+      "duration": 3,
       "currentRetry": 0,
       "err": {
-        "stack": "ReferenceError: User is not defined\n    at Context.<anonymous> (test/models_test.js/hand-test.js:43:5)\n    at bookshelf.transaction.t (test/models_test.js/hand-test.js:34:7)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/knex/lib/transaction.js:75:20\n    at tryCatcher (node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (node_modules/bluebird/js/release/promise.js:512:31)\n    at Promise._settlePromise (node_modules/bluebird/js/release/promise.js:569:18)\n    at Promise._settlePromise0 (node_modules/bluebird/js/release/promise.js:614:10)\n    at Promise._settlePromises (node_modules/bluebird/js/release/promise.js:693:18)\n    at Async._drainQueue (node_modules/bluebird/js/release/async.js:133:16)\n    at Async._drainQueues (node_modules/bluebird/js/release/async.js:143:10)\n    at Immediate.Async.drainQueues (node_modules/bluebird/js/release/async.js:17:14)",
-        "message": "User is not defined"
+        "stack": "error: insert or update on table \"hands\" violates foreign key constraint \"hands_session_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
+        "message": "insert into \"hands\" (\"created_at\", \"flop\", \"flopBet\", \"holeCards\", \"playersToFlop\", \"playersToRiver\", \"playersToShowdown\", \"playersToTurn\", \"position\", \"potSize\", \"preFlopRaise\", \"river\", \"riverBet\", \"session_id\", \"status\", \"table_id\", \"turn\", \"turnBet\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) returning \"id\" - insert or update on table \"hands\" violates foreign key constraint \"hands_session_id_foreign\"",
+        "name": "error",
+        "length": 253,
+        "severity": "ERROR",
+        "code": "23503",
+        "detail": "Key (session_id)=(1) is not present in table \"sessions\".",
+        "schema": "public",
+        "table": "hands",
+        "constraint": "hands_session_id_foreign",
+        "file": "ri_triggers.c",
+        "line": "3324",
+        "routine": "ri_ReportViolation"
+      }
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Session saves a record to the database",
+      "duration": 5,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Table saves a record to the database",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {
+        "stack": "error: insert or update on table \"tables\" violates foreign key constraint \"tables_session_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
+        "message": "insert into \"tables\" (\"buyin\", \"capacity\", \"created_at\", \"id\", \"session_id\", \"size\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7) returning \"id\" - insert or update on table \"tables\" violates foreign key constraint \"tables_session_id_foreign\"",
+        "name": "error",
+        "length": 257,
+        "severity": "ERROR",
+        "code": "23503",
+        "detail": "Key (session_id)=(1) is not present in table \"sessions\".",
+        "schema": "public",
+        "table": "tables",
+        "constraint": "tables_session_id_foreign",
+        "file": "ri_triggers.c",
+        "line": "3324",
+        "routine": "ri_ReportViolation"
       }
     }
   ],
@@ -50,7 +89,7 @@
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 68,
+      "duration": 47,
       "currentRetry": 0,
       "err": {
         "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
@@ -60,11 +99,43 @@
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 0,
+      "duration": 3,
       "currentRetry": 0,
       "err": {
-        "stack": "ReferenceError: User is not defined\n    at Context.<anonymous> (test/models_test.js/hand-test.js:43:5)\n    at bookshelf.transaction.t (test/models_test.js/hand-test.js:34:7)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/knex/lib/transaction.js:75:20\n    at tryCatcher (node_modules/bluebird/js/release/util.js:16:23)\n    at Promise._settlePromiseFromHandler (node_modules/bluebird/js/release/promise.js:512:31)\n    at Promise._settlePromise (node_modules/bluebird/js/release/promise.js:569:18)\n    at Promise._settlePromise0 (node_modules/bluebird/js/release/promise.js:614:10)\n    at Promise._settlePromises (node_modules/bluebird/js/release/promise.js:693:18)\n    at Async._drainQueue (node_modules/bluebird/js/release/async.js:133:16)\n    at Async._drainQueues (node_modules/bluebird/js/release/async.js:143:10)\n    at Immediate.Async.drainQueues (node_modules/bluebird/js/release/async.js:17:14)",
-        "message": "User is not defined"
+        "stack": "error: insert or update on table \"hands\" violates foreign key constraint \"hands_session_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
+        "message": "insert into \"hands\" (\"created_at\", \"flop\", \"flopBet\", \"holeCards\", \"playersToFlop\", \"playersToRiver\", \"playersToShowdown\", \"playersToTurn\", \"position\", \"potSize\", \"preFlopRaise\", \"river\", \"riverBet\", \"session_id\", \"status\", \"table_id\", \"turn\", \"turnBet\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) returning \"id\" - insert or update on table \"hands\" violates foreign key constraint \"hands_session_id_foreign\"",
+        "name": "error",
+        "length": 253,
+        "severity": "ERROR",
+        "code": "23503",
+        "detail": "Key (session_id)=(1) is not present in table \"sessions\".",
+        "schema": "public",
+        "table": "hands",
+        "constraint": "hands_session_id_foreign",
+        "file": "ri_triggers.c",
+        "line": "3324",
+        "routine": "ri_ReportViolation"
+      }
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Table saves a record to the database",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {
+        "stack": "error: insert or update on table \"tables\" violates foreign key constraint \"tables_session_id_foreign\"\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
+        "message": "insert into \"tables\" (\"buyin\", \"capacity\", \"created_at\", \"id\", \"session_id\", \"size\", \"updated_at\") values ($1, $2, $3, $4, $5, $6, $7) returning \"id\" - insert or update on table \"tables\" violates foreign key constraint \"tables_session_id_foreign\"",
+        "name": "error",
+        "length": 257,
+        "severity": "ERROR",
+        "code": "23503",
+        "detail": "Key (session_id)=(1) is not present in table \"sessions\".",
+        "schema": "public",
+        "table": "tables",
+        "constraint": "tables_session_id_foreign",
+        "file": "ri_triggers.c",
+        "line": "3324",
+        "routine": "ri_ReportViolation"
       }
     }
   ],
@@ -72,14 +143,21 @@
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 1,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 32,
+      "duration": 58,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "saves a record to the database",
+      "fullTitle": "Session saves a record to the database",
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     }

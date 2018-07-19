@@ -3,7 +3,7 @@ const chai = require('chai')
 const bookshelf = require('../../app/db/bookshelf')
 const Hand = require('../../app/models/hand')
 
-const expect = chai.expect
+const expect = chai.expect 
 
 const mockHand = {
   position: 'Under The Gun',
@@ -21,8 +21,8 @@ const mockHand = {
   flop: 'Jc Qh Kd',
   turn: 'Ac',
   river: 'Qd',
-  session_id: 1034,
-  table_id: 1502,
+  session_id: 1,
+  table_id: 1,
 } 
 
 describe('Hand', function() {
@@ -40,7 +40,7 @@ describe('Hand', function() {
   })
  
   it('saves a record to the database', function() {
-    return User.forge().
+    return Hand.forge().
       // we can use a transaction by setting
       // a `transacting` param in the options
       // we pass to `save()`
