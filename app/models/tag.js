@@ -8,8 +8,14 @@ const Tag = bookshelf.Model.extend({
   initialize: function() {
   },
   hasTimestamps: true,
-  tag: function() {
-    return this.morphTo('tag', 'Hand', 'Session', 'Table');
+  hands: function() {
+    return this.morphMany('Hands', 'hand_tag');
+  },
+  sessions: function() {
+    return this.morphMany('Sessions', 'session_tag');
+  }, 
+  tables: function() {
+    return this.morphMany('Tables', 'table_tag');
   },
 });
 

@@ -15,7 +15,7 @@ const Table = bookshelf.Model.extend({
     return this.belongsTo('Session');
   },
   tags: function() {
-    return this.morphMany('Tag', 'tag');
+    return this.morphMany('Tags', 'table_tag');
   }
 });
 
