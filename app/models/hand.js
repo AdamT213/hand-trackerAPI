@@ -14,6 +14,9 @@ const Hand = bookshelf.Model.extend({
   table: function() {
     return this.belongsTo('Table');
   },
+  tags: function() {
+    return this.morphMany('Tag', 'tag');
+  }
 });
 
 module.exports = bookshelf.model('Hand', Hand);

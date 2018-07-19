@@ -14,6 +14,9 @@ const Table = bookshelf.Model.extend({
   session: function() {
     return this.belongsTo('Session');
   },
+  tags: function() {
+    return this.morphMany('Tag', 'tag');
+  }
 });
 
 module.exports = bookshelf.model('Table', Table);

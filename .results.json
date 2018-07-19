@@ -5,29 +5,29 @@
     "passes": 10,
     "pending": 0,
     "failures": 0,
-    "start": "2018-07-19T21:25:37.163Z",
-    "end": "2018-07-19T21:25:37.503Z",
-    "duration": 340
+    "start": "2018-07-19T21:55:45.473Z",
+    "end": "2018-07-19T21:55:45.900Z",
+    "duration": 427
   },
   "tests": [
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 1,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 35,
+      "duration": 63,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 61,
+      "duration": 92,
       "currentRetry": 0,
       "err": {}
     },
@@ -41,35 +41,35 @@
     {
       "title": "succeeds with valid session values",
       "fullTitle": "app /api/sessions POST succeeds with valid session values",
-      "duration": 9,
+      "duration": 10,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 3,
+      "duration": 29,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid table values",
       "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 6,
+      "duration": 8,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 7,
+      "duration": 35,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Session saves a record to the database",
-      "duration": 34,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     },
@@ -87,21 +87,21 @@
     {
       "title": "is a function",
       "fullTitle": "app up is a function",
-      "duration": 1,
+      "duration": 2,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 35,
+      "duration": 63,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 61,
+      "duration": 92,
       "currentRetry": 0,
       "err": {}
     },
@@ -115,35 +115,35 @@
     {
       "title": "succeeds with valid session values",
       "fullTitle": "app /api/sessions POST succeeds with valid session values",
-      "duration": 9,
+      "duration": 10,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 3,
+      "duration": 29,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid table values",
       "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 6,
+      "duration": 8,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 7,
+      "duration": 35,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Session saves a record to the database",
-      "duration": 34,
+      "duration": 4,
       "currentRetry": 0,
       "err": {}
     },

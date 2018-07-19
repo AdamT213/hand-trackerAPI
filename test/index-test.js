@@ -1,6 +1,6 @@
 const chai = require('chai')
  
-/* ADD ME! */
+
 const app = require('../app')
 
 const supertest = require('supertest')
@@ -34,7 +34,7 @@ describe('app', function() {
           expect(400, done)
       })
  
-      /** This is new! */
+      
       it('succeeds with valid hand values', function(done) {
         supertest(server).
           post('/api/hands').
@@ -71,7 +71,7 @@ describe('app', function() {
           expect(400, done)
       })
  
-      /** This is new! */
+      
       it('succeeds with valid session values', function(done) {
         supertest(server).
           post('/api/sessions').
@@ -94,7 +94,7 @@ describe('app', function() {
           expect(400, done)
       })
  
-      /** This is new! */
+      
       it('succeeds with valid table values', function(done) {
         supertest(server).
           post('/api/tables').
