@@ -79,6 +79,8 @@ describe('Hand', function() {
         expect(hand.get('river')).to.equal(mockHand.river) 
         expect(hand.get('session_id')).to.be.a('number')
         expect(hand.get('session_id')).to.equal(mockHand.session_id) 
+        expect(hand.get('table_id')).to.be.a('number')
+        expect(hand.get('table_id')).to.equal(mockHand.table_id)
       })
   })
 })

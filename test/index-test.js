@@ -54,8 +54,55 @@ describe('app', function() {
             flop: 'Jc Qh Kd',
             turn: 'Ac',
             river: 'Qd',
-            session_id: 1034,
-            table_id: 1502,
+            session_id: 1,
+            table_id: 1,
+          }).
+          set('content-type', 'application/json').
+          expect(200, done)
+      })
+    })
+  })
+
+  describe('/api/sessions', function() {
+    describe('POST', function() {
+      it('fails with an empty request body', function(done) {
+        supertest(server).
+          post('/api/sessions').
+          expect(400, done)
+      })
+ 
+      /** This is new! */
+      it('succeeds with valid session values', function(done) {
+        supertest(server).
+          post('/api/sessions').
+          send({
+            duration: 45,
+            status: false,
+            amount: 7.5,
+          }).
+          set('content-type', 'application/json').
+          expect(200, done)
+      })
+    })
+  })
+
+  describe('/api/tables', function() {
+    describe('POST', function() {
+      it('fails with an empty request body', function(done) {
+        supertest(server).
+          post('/api/tables').
+          expect(400, done)
+      })
+ 
+      /** This is new! */
+      it('succeeds with valid session values', function(done) {
+        supertest(server).
+          post('/api/tables').
+          send({
+            buyin: 50,
+            size: 5,
+            capacity: 6,
+            session_id: 1
           }).
           set('content-type', 'application/json').
           expect(200, done)

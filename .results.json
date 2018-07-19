@@ -1,13 +1,13 @@
 {
   "stats": {
-    "suites": 7,
-    "tests": 6,
+    "suites": 11,
+    "tests": 10,
     "passes": 3,
     "pending": 0,
-    "failures": 3,
-    "start": "2018-07-19T20:00:52.350Z",
-    "end": "2018-07-19T20:00:52.656Z",
-    "duration": 306
+    "failures": 7,
+    "start": "2018-07-19T20:33:46.432Z",
+    "end": "2018-07-19T20:33:46.802Z",
+    "duration": 370
   },
   "tests": [
     {
@@ -20,18 +20,58 @@
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 58,
+      "duration": 36,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 47,
+      "duration": 48,
       "currentRetry": 0,
       "err": {
         "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
         "message": "expected 200 \"OK\", got 500 \"Internal Server Error\""
+      }
+    },
+    {
+      "title": "fails with an empty request body",
+      "fullTitle": "app /api/sessions POST fails with an empty request body",
+      "duration": 7,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "succeeds with valid session values",
+      "fullTitle": "app /api/sessions POST succeeds with valid session values",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 200 \"OK\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "fails with an empty request body",
+      "fullTitle": "app /api/tables POST fails with an empty request body",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "succeeds with valid session values",
+      "fullTitle": "app /api/tables POST succeeds with valid session values",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 200 \"OK\", got 404 \"Not Found\""
       }
     },
     {
@@ -89,11 +129,51 @@
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 47,
+      "duration": 48,
       "currentRetry": 0,
       "err": {
         "stack": "Error: expected 200 \"OK\", got 500 \"Internal Server Error\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
         "message": "expected 200 \"OK\", got 500 \"Internal Server Error\""
+      }
+    },
+    {
+      "title": "fails with an empty request body",
+      "fullTitle": "app /api/sessions POST fails with an empty request body",
+      "duration": 7,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "succeeds with valid session values",
+      "fullTitle": "app /api/sessions POST succeeds with valid session values",
+      "duration": 4,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 200 \"OK\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "fails with an empty request body",
+      "fullTitle": "app /api/tables POST fails with an empty request body",
+      "duration": 2,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 400 \"Bad Request\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 400 \"Bad Request\", got 404 \"Not Found\""
+      }
+    },
+    {
+      "title": "succeeds with valid session values",
+      "fullTitle": "app /api/tables POST succeeds with valid session values",
+      "duration": 3,
+      "currentRetry": 0,
+      "err": {
+        "stack": "Error: expected 200 \"OK\", got 404 \"Not Found\"\n    at Test._assertStatus (node_modules/supertest/lib/test.js:268:12)\n    at Test._assertFunction (node_modules/supertest/lib/test.js:283:11)\n    at Test.assert (node_modules/supertest/lib/test.js:173:18)\n    at assert (node_modules/supertest/lib/test.js:131:12)\n    at /home/learn/Development/Code/hand-trackerAPI/node_modules/supertest/lib/test.js:128:5\n    at Test.Request.callback (node_modules/superagent/lib/node/index.js:718:3)\n    at IncomingMessage.parser (node_modules/superagent/lib/node/index.js:906:18)\n    at endReadableNT (_stream_readable.js:1055:12)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)\n    at process._tickCallback (internal/process/next_tick.js:180:9)",
+        "message": "expected 200 \"OK\", got 404 \"Not Found\""
       }
     },
     {
@@ -150,7 +230,7 @@
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 58,
+      "duration": 36,
       "currentRetry": 0,
       "err": {}
     },
