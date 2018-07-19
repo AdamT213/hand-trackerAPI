@@ -32,7 +32,7 @@ console.log(`Running in environment: ${ENV}`);
 // ***** Models ***** //
 
 const Hand = require('./models/hand');
-
+const Session = require('./models/session');
 /// ***** Passport Strategies & Helpers ***** //
 
 
@@ -75,6 +75,49 @@ router.post('/hands', (req, res) => {
     .save()
     .then((hand) => {
       res.json({id: hand.id});
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/sessions', (req, res) => {
+  Session
+    .collection()
+    .fetch()
+    .then((sessions) => {
+      res.json(sessions);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/session/:id', (req,res) => {
+  Session
+    .forge({id: req.params.id})
+    .fetch({withRelated: ['tables', 'hands']})
+    .then((session) => {
+      if (_.isEmpty(session))
+        return res.sendStatus(404);
+      res.json(session);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.post('/sessions', (req, res) => {
+  if(_.isEmpty(req.body))
+    return res.sendStatus(400);
+  Session
+    .forge(req.body)
+    .save()
+    .then((session) => {
+      res.json({id: session.id});
     })
     .catch((error) => {
       console.error(error);

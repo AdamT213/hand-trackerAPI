@@ -37,7 +37,7 @@ describe('Table', function() {
         expect(table.get('id')).to.be.a('number') 
         expect(table.get('buyin')).to.be.a('number')
         expect(table.get('buyin')).to.equal(mockTable.buyin) 
-        expect(table.get('size')).to.be.a('boolean')
+        expect(table.get('size')).to.be.a('number')
         expect(table.get('size')).to.equal(mockTable.size)
         expect(table.get('capacity')).to.be.a('number')
         expect(table.get('capacity')).to.equal(mockTable.capacity)  
