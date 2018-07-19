@@ -4,7 +4,7 @@
   "description": "A tool to track common trends in the poker hands I win and lose",
   "main": "index.js",
   "scripts": {
-    "test": "export NODE_ENV=testing; mocha -R mocha-multi --reporter-options spec=-,json=.results.json",
+    "test": "export NODE_ENV=testing; mocha --recursive -R mocha-multi --reporter-options spec=-,json=.results.json",
     "start": "export NODE_ENV=development; node server.js"
   },
   "repository": {
