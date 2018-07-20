@@ -109,4 +109,25 @@ describe('app', function() {
       })
     })
   })
+
+  describe('/api/tags', function() {
+    describe('POST', function() {
+      it('fails with an empty request body', function(done) {
+        supertest(server).
+          post('/api/tags').
+          expect(400, done)
+      })
+ 
+      
+      it('succeeds with valid tag values', function(done) {
+        supertest(server).
+          post('/api/tags').
+          send({
+            name: 'beat with a pair of jacks'
+          }).
+          set('content-type', 'application/json').
+          expect(200, done)
+      })
+    })
+  })
 })

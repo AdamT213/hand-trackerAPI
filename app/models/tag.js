@@ -9,14 +9,14 @@ const Tag = bookshelf.Model.extend({
   },
   hasTimestamps: true,
   hands: function() {
-    return this.morphMany('Hands', 'hand_tag');
+    return this.morphMany('Hands', 'hands_tags');
   },
   sessions: function() {
-    return this.morphMany('Sessions', 'session_tag');
+    return this.morphMany('Sessions', 'sessions_tags');
   }, 
   tables: function() {
-    return this.morphMany('Tables', 'table_tag');
+    return this.morphMany('Tables', 'tables_tags');
   },
 });
 
-module.exports = bookshelf.model('Hand', Hand);
+module.exports = bookshelf.model('Tag', Tag);
