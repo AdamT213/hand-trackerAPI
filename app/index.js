@@ -228,10 +228,10 @@ exports.up = (justBackend) => {
     })
     .then((val) => {
       console.log('Done running latest migration:', val);
-      return listen(3000);
+      return listen(process.env.PORT || 3000);
     })
     .then((server) => {
-      console.log('Listening on port 3000...');
+      console.log(`Listening on port ${process.env.PORT} || 3000...`);
       return server
     });
 };
