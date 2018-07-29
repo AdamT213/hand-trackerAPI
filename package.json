@@ -1,6 +1,10 @@
 {
   "name": "hand-tracker",
   "version": "1.0.0",
+  "engines": {
+    "node": "8.9.4",
+    "npm": "6.1.0"
+  },
   "description": "A tool to track common trends in the poker hands I win and lose",
   "main": "index.js",
   "scripts": {
