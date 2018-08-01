@@ -10,7 +10,6 @@
   "scripts": {
     "test": "export NODE_ENV=testing; mocha --recursive -R mocha-multi --reporter-options spec=-,json=.results.json",
     "start": "export NODE_ENV=development; node server.js"
-    // "heroku-postbuild": "npm install --only=dev"
   },
   "repository": {
     "type": "git",
@@ -23,11 +22,7 @@
   },
   "homepage": "https://github.com/AdamT213/hand-tracker#readme",
   "devDependencies": {
-    // "body-parser": "^1.18.3",
     "chai": "^4.1.2",
-    // "express": "^4.16.3",
-    // "jsdom": "^11.11.0",
-    // "lodash": "^4.17.10",
     "mocha": "^5.2.0",
     "mocha-jsdom": "^2.0.0",
     "mocha-multi": "^1.0.1",
