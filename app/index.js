@@ -44,7 +44,7 @@ const Tag = require('./models/tag');
 router.get('/hands', (req, res) => {
   Hand
     .collection()
-    .fetch()
+    .fetch({withRelated: ['sessions', 'tables','hands_tags']})
     .then((hands) => {
       res.json(hands);
     })
@@ -57,7 +57,7 @@ router.get('/hands', (req, res) => {
 router.get('/hand/:id', (req,res) => {
   Hand
     .forge({id: req.params.id})
-    .fetch({withRelated: ['sessions', 'tables']})
+    .fetch({withRelated: ['sessions', 'tables', 'hands_tags']})
     .then((hand) => {
       if (_.isEmpty(hand))
         return res.sendStatus(404);
@@ -87,7 +87,7 @@ router.post('/hands', (req, res) => {
 router.get('/sessions', (req, res) => {
   Session
     .collection()
-    .fetch({withRelated: ['tables']})
+    .fetch({withRelated: ['tables', 'sessions_tags']})
     .then((sessions) => {
       res.json(sessions);
     })
@@ -100,7 +100,7 @@ router.get('/sessions', (req, res) => {
 router.get('/session/:id', (req,res) => {
   Session
     .forge({id: req.params.id})
-    .fetch({withRelated: ['tables']})
+    .fetch({withRelated: ['tables', 'tables_tags']})
     .then((session) => {
       if (_.isEmpty(session))
         return res.sendStatus(404);
@@ -130,7 +130,7 @@ router.post('/sessions', (req, res) => {
 router.get('/tables', (req, res) => {
   Table
     .collection()
-    .fetch({withRelated: ['hands']})
+    .fetch({withRelated: ['hands', 'tables_tags']})
     .then((tables) => {
       res.json(tables);
     })
@@ -143,7 +143,7 @@ router.get('/tables', (req, res) => {
 router.get('/table/:id', (req,res) => {
   Table
     .forge({id: req.params.id})
-    .fetch({withRelated: ['session', 'hands']})
+    .fetch({withRelated: ['session', 'hands', 'tables_tags']})
     .then((table) => {
       if (_.isEmpty(table))
         return res.sendStatus(404);
@@ -173,7 +173,7 @@ router.post('/tables', (req, res) => {
 router.get('/tags', (req, res) => {
   Tag
     .collection()
-    .fetch()
+    .fetch({withRelated: ['sessions_tags', 'hands_tags', 'tables_tags']})
     .then((tags) => {
       res.json(tags);
     })
@@ -186,7 +186,7 @@ router.get('/tags', (req, res) => {
 router.get('/tag/:id', (req,res) => {
   Tag
     .forge({id: req.params.id})
-    .fetch({withRelated: ['sessions', 'hands', 'tables']})
+    .fetch({withRelated: ['sessions_tags', 'hands_tags', 'tables_tags']})
     .then((tag) => {
       if (_.isEmpty(tag))
         return res.sendStatus(404);
