@@ -87,7 +87,7 @@ router.post('/hands', (req, res) => {
 router.get('/sessions', (req, res) => {
   Session
     .collection()
-    .fetch({withRelated: ['tables', 'hands']})
+    .fetch({withRelated: ['tables']})
     .then((sessions) => {
       res.json(sessions);
     })
@@ -130,7 +130,7 @@ router.post('/sessions', (req, res) => {
 router.get('/tables', (req, res) => {
   Table
     .collection()
-    .fetch()
+    .fetch({withRelated: ['hands']})
     .then((tables) => {
       res.json(tables);
     })
