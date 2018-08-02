@@ -14,7 +14,7 @@ const Session = bookshelf.Model.extend({
   tables: function() {
     return this.hasMany('tables');
   },
-  tags: function() {
+  sessions_tags: function() {
     return this.hasMany('sessions_tags');
   }
 });

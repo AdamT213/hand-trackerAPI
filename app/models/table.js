@@ -14,8 +14,8 @@ const Table = bookshelf.Model.extend({
   session: function() {
     return this.belongsTo('sessions');
   },
-  tags: function() {
-    return this.morphMany('tags', 'tables_tags');
+  tables_tags: function() {
+    return this.hasMany('tables_tags');
   }
 });
 

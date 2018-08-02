@@ -8,13 +8,13 @@ const Tag = bookshelf.Model.extend({
   initialize: function() {
   },
   hasTimestamps: true,
-  hands: function() {
+  hands_tags: function() {
     return this.hasMany('hands_tags');
   },
-  sessions: function() {
+  sessions_tags: function() {
     return this.hasMany('sessions_tags');
   }, 
-  tables: function() {
+  tables_tags: function() {
     return this.hasMany('tables_tags');
   },
 });
