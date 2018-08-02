@@ -87,7 +87,7 @@ router.post('/hands', (req, res) => {
 router.get('/sessions', (req, res) => {
   Session
     .collection()
-    .fetch()
+    .fetch({withRelated: ['tables', 'hands']})
     .then((sessions) => {
       res.json(sessions);
     })

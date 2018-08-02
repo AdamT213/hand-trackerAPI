@@ -5,9 +5,9 @@
     "passes": 13,
     "pending": 0,
     "failures": 0,
-    "start": "2018-07-20T20:45:18.238Z",
-    "end": "2018-07-20T20:45:18.687Z",
-    "duration": 449
+    "start": "2018-08-02T00:56:26.125Z",
+    "end": "2018-08-02T00:56:27.151Z",
+    "duration": 1026
   },
   "tests": [
     {
@@ -20,21 +20,21 @@
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 53,
+      "duration": 63,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 60,
+      "duration": 129,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/sessions POST fails with an empty request body",
-      "duration": 28,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
@@ -55,28 +55,28 @@
     {
       "title": "succeeds with valid table values",
       "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 6,
+      "duration": 48,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/tags POST fails with an empty request body",
-      "duration": 29,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid tag values",
       "fullTitle": "app /api/tags POST succeeds with valid tag values",
-      "duration": 7,
+      "duration": 52,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 6,
+      "duration": 48,
       "currentRetry": 0,
       "err": {}
     },
@@ -90,14 +90,14 @@
     {
       "title": "saves a record to the database",
       "fullTitle": "Table saves a record to the database",
-      "duration": 3,
+      "duration": 36,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Session saves a record to the database",
-      "duration": 30,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     }
@@ -115,21 +115,21 @@
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 53,
+      "duration": 63,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid hand values",
       "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 60,
+      "duration": 129,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/sessions POST fails with an empty request body",
-      "duration": 28,
+      "duration": 5,
       "currentRetry": 0,
       "err": {}
     },
@@ -150,28 +150,28 @@
     {
       "title": "succeeds with valid table values",
       "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 6,
+      "duration": 48,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "fails with an empty request body",
       "fullTitle": "app /api/tags POST fails with an empty request body",
-      "duration": 29,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "succeeds with valid tag values",
       "fullTitle": "app /api/tags POST succeeds with valid tag values",
-      "duration": 7,
+      "duration": 52,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Hand saves a record to the database",
-      "duration": 6,
+      "duration": 48,
       "currentRetry": 0,
       "err": {}
     },
@@ -185,14 +185,14 @@
     {
       "title": "saves a record to the database",
       "fullTitle": "Table saves a record to the database",
-      "duration": 3,
+      "duration": 36,
       "currentRetry": 0,
       "err": {}
     },
     {
       "title": "saves a record to the database",
       "fullTitle": "Session saves a record to the database",
-      "duration": 30,
+      "duration": 3,
       "currentRetry": 0,
       "err": {}
     }
