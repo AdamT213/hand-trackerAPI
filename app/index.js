@@ -229,21 +229,6 @@ router.get('/hands_tags', (req, res) => {
     });
 });
 
-router.get('/hands_tag/:id', (req,res) => {
-  Hands_Tag
-    .forge({id: req.params.id})
-    .fetch({withRelated: ['hands', 'tags']})
-    .then((hands_tag) => {
-      if (_.isEmpty(hands_tag))
-        return res.sendStatus(404);
-      res.json(hands_tag);
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.sendStatus(500);
-    });
-});
-
 router.post('/hands_tags', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
@@ -251,7 +236,7 @@ router.post('/hands_tags', (req, res) => {
     .forge(req.body)
     .save()
     .then((hand_tag) => {
-      res.json({id: hand_tag.id});
+      res.json("Successfully Created");
     })
     .catch((error) => {
       console.error(error);
@@ -272,21 +257,6 @@ router.get('/sessions_tags', (req, res) => {
     });
 });
 
-router.get('/sessions_tag/:id', (req,res) => {
-  Sessions_Tag
-    .forge({id: req.params.id})
-    .fetch({withRelated: ['sessions', 'tags']})
-    .then((sessions_tag) => {
-      if (_.isEmpty(sessions_tag))
-        return res.sendStatus(404);
-      res.json(sessions_tag);
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.sendStatus(500);
-    });
-});
-
 router.post('/sessions_tags', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
@@ -294,7 +264,7 @@ router.post('/sessions_tags', (req, res) => {
     .forge(req.body)
     .save()
     .then((session_tag) => {
-      res.json({id: session_tag.id});
+      res.json("Successfully Created");
     })
     .catch((error) => {
       console.error(error);
@@ -315,21 +285,6 @@ router.get('/tables_tags', (req, res) => {
     });
 });
 
-router.get('/tables_tag/:id', (req,res) => {
-  Tables_Tag
-    .forge({id: req.params.id})
-    .fetch({withRelated: ['tables', 'tags']})
-    .then((tables_tag) => {
-      if (_.isEmpty(tables_tag))
-        return res.sendStatus(404);
-      res.json(tables_tag);
-    })
-    .catch((error) => {
-      console.error(error);
-      return res.sendStatus(500);
-    });
-});
-
 router.post('/tables_tags', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
@@ -337,7 +292,7 @@ router.post('/tables_tags', (req, res) => {
     .forge(req.body)
     .save()
     .then((table_tag) => {
-      res.json({id: table_tag.id});
+      res.json("Successfully Created");
     })
     .catch((error) => {
       console.error(error);
