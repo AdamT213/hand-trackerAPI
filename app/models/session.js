@@ -12,7 +12,7 @@ const Session = bookshelf.Model.extend({
     return this.hasMany(Hand);
   },
   tables: function() {
-    return this.hasMany(Table);
+    return this.hasMany('tables');
   },
   tags: function() {
     return this.morphMany(Tag, 'sessions_tag');
