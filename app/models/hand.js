@@ -14,7 +14,7 @@ const Hand = bookshelf.Model.extend({
   tables: function() {
     return this.belongsTo('tables');
   },
-  hands_tag: function() {
+  hands_tags: function() {
     return this.hasMany('hands_tags');
   }
 });
