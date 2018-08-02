@@ -3,7 +3,7 @@
 const bookshelf = require('../db/bookshelf');
 
 
-const Hand_Tag = bookshelf.Model.extend({
+const Hands_Tag = bookshelf.Model.extend({
   tableName: 'hands_tags',
   initialize: function() {
   },
@@ -16,4 +16,4 @@ const Hand_Tag = bookshelf.Model.extend({
   },
 });
 
-module.exports = bookshelf.model('hands_tags', Hand_Tag);
+module.exports = bookshelf.model('hands_tags', Hands_Tag);
