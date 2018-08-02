@@ -34,7 +34,10 @@ console.log(`Running in environment: ${ENV}`);
 const Hand = require('./models/hand');
 const Session = require('./models/session');
 const Table = require('./models/table');
-const Tag = require('./models/tag');
+const Tag = require('./models/tag'); 
+const Hands_Tag = require('./models/hands_tag');
+const Sessions_Tag = require('./models/sessions_tag'); 
+const Tables_Tag = require('./models/tables_tag'); 
 /// ***** Passport Strategies & Helpers ***** //
 
 
@@ -211,7 +214,136 @@ router.post('/tags', (req, res) => {
       console.error(error);
       return res.sendStatus(500);
     });
+}); 
+
+router.get('/hands_tags', (req, res) => {
+  Hands_Tag
+    .collection()
+    .fetch({withRelated: ['hands', 'tags']})
+    .then((hands_tags) => {
+      res.json(hands_tags);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
 });
+
+router.get('/hands_tag/:id', (req,res) => {
+  Hands_Tag
+    .forge({id: req.params.id})
+    .fetch({withRelated: ['hands', 'tags']})
+    .then((hands_tag) => {
+      if (_.isEmpty(hands_tag))
+        return res.sendStatus(404);
+      res.json(hands_tag);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.post('/hands_tags', (req, res) => {
+  if(_.isEmpty(req.body))
+    return res.sendStatus(400);
+  Hands_Tag
+    .forge(req.body)
+    .save()
+    .then((hand_tag) => {
+      res.json({id: hand_tag.id});
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+}); 
+
+router.get('/sessions_tags', (req, res) => {
+  Sessions_Tag
+    .collection()
+    .fetch({withRelated: ['sessions', 'tags']})
+    .then((sessions_tags) => {
+      res.json(sessions_tags);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/sessions_tag/:id', (req,res) => {
+  Sessions_Tag
+    .forge({id: req.params.id})
+    .fetch({withRelated: ['sessions', 'tags']})
+    .then((sessions_tag) => {
+      if (_.isEmpty(sessions_tag))
+        return res.sendStatus(404);
+      res.json(sessions_tag);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.post('/sessions_tags', (req, res) => {
+  if(_.isEmpty(req.body))
+    return res.sendStatus(400);
+  Sessions_Tag
+    .forge(req.body)
+    .save()
+    .then((session_tag) => {
+      res.json({id: session_tag.id});
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+}); 
+
+router.get('/tables_tags', (req, res) => {
+  Tables_Tag
+    .collection()
+    .fetch({withRelated: ['tables', 'tags']})
+    .then((tables_tags) => {
+      res.json(tables_tags);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.get('/tables_tag/:id', (req,res) => {
+  Tables_Tag
+    .forge({id: req.params.id})
+    .fetch({withRelated: ['tables', 'tags']})
+    .then((tables_tag) => {
+      if (_.isEmpty(tables_tag))
+        return res.sendStatus(404);
+      res.json(tables_tag);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+});
+
+router.post('/tables_tags', (req, res) => {
+  if(_.isEmpty(req.body))
+    return res.sendStatus(400);
+  Tables_Tag
+    .forge(req.body)
+    .save()
+    .then((table_tag) => {
+      res.json({id: table_tag.id});
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+}); 
 
 // Exports for Server Hoisting.
 
