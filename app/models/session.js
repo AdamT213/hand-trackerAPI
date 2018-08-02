@@ -9,13 +9,13 @@ const Session = bookshelf.Model.extend({
   },
   hasTimestamps: true,
   hands: function() {
-    return this.hasMany('hands');
+    return this.hasMany('hand');
   },
   tables: function() {
-    return this.hasMany('tables');
+    return this.hasMany('table');
   },
   tags: function() {
-    return this.morphMany('tags', 'sessions_tags');
+    return this.morphMany('tag', 'sessions_tag');
   }
 });
 
