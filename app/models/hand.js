@@ -8,10 +8,10 @@ const Hand = bookshelf.Model.extend({
   initialize: function() {
   },
   hasTimestamps: true,
-  session: function() {
+  sessions: function() {
     return this.belongsTo('sessions');
   },
-  table: function() {
+  tables: function() {
     return this.belongsTo('tables');
   },
   hands_tag: function() {
