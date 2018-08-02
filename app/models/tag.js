@@ -4,7 +4,7 @@ const bookshelf = require('../db/bookshelf');
 
 
 const Tag = bookshelf.Model.extend({
-  tableName: 'tag',
+  tableName: 'tags',
   initialize: function() {
   },
   hasTimestamps: true,
@@ -19,4 +19,4 @@ const Tag = bookshelf.Model.extend({
   },
 });
 
-module.exports = bookshelf.model('tag', Tag);
+module.exports = bookshelf.model('tags', Tag);
