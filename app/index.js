@@ -231,7 +231,7 @@ exports.up = (justBackend) => {
       return listen(process.env.PORT || 3000);
     })
     .then((server) => {
-      console.log(`Listening on port ${process.env.PORT} || 3000...`);
+      console.log(`Listening on port ${process.env.PORT || 3000}...`);
       return server
     });
 };
