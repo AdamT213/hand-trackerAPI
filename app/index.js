@@ -100,7 +100,7 @@ router.get('/sessions', (req, res) => {
 router.get('/session/:id', (req,res) => {
   Session
     .forge({id: req.params.id})
-    .fetch({withRelated: ['tables', 'hands']})
+    .fetch({withRelated: ['tables']})
     .then((session) => {
       if (_.isEmpty(session))
         return res.sendStatus(404);
