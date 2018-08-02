@@ -4,18 +4,18 @@ const bookshelf = require('../db/bookshelf');
 
 
 const Hand = bookshelf.Model.extend({
-  tableName: 'hands',
+  tableName: 'hand',
   initialize: function() {
   },
   hasTimestamps: true,
   session: function() {
-    return this.belongsTo('Session');
+    return this.belongsTo(Session);
   },
   table: function() {
-    return this.belongsTo('Table');
+    return this.belongsTo(Table);
   },
   tags: function() {
-    return this.morphMany('Tag', 'hands_tags');
+    return this.morphMany(Tag, 'hands_tags');
   }
 });
 

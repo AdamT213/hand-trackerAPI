@@ -4,19 +4,19 @@ const bookshelf = require('../db/bookshelf');
 
 
 const Table = bookshelf.Model.extend({
-  tableName: 'tables',
+  tableName: 'table',
   initialize: function() {
   },
   hasTimestamps: true,
   hands: function() {
-    return this.hasMany('Hands');
+    return this.hasMany(Hand);
   },
   session: function() {
-    return this.belongsTo('Session');
+    return this.belongsTo(Session);
   },
   tags: function() {
-    return this.morphMany('Tags', 'tables_tags');
+    return this.morphMany(Tag, 'tables_tags');
   }
 });
 
-module.exports = bookshelf.model('Table', Table);
+module.exports = bookshelf.model('table', Table);
