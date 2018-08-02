@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const session = require('cookie-session');
 const knex = require('knex');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -57,7 +57,7 @@ router.get('/hands', (req, res) => {
 router.get('/hand/:id', (req,res) => {
   Hand
     .forge({id: req.params.id})
-    .fetch({withRelated: ['session', 'table']})
+    .fetch({withRelated: ['sessions', 'tables']})
     .then((hand) => {
       if (_.isEmpty(hand))
         return res.sendStatus(404);
