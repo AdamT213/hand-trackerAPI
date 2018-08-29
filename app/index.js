@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const cors = require('cors'); 
 const session = require('cookie-session');
 const knex = require('knex');
 const passport = require('passport');

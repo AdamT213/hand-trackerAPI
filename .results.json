@@ -1,200 +1,44 @@
 {
   "stats": {
-    "suites": 14,
-    "tests": 13,
-    "passes": 13,
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2018-08-02T02:21:51.323Z",
-    "end": "2018-08-02T02:21:51.689Z",
-    "duration": 366
+    "failures": 2,
+    "start": "2018-08-28T21:36:22.724Z",
+    "end": "2018-08-28T21:36:22.828Z",
+    "duration": 104
   },
-  "tests": [
+  "tests": [],
+  "pending": [],
+  "failures": [
     {
-      "title": "is a function",
-      "fullTitle": "app up is a function",
-      "duration": 1,
+      "title": "\"before all\" hook",
+      "fullTitle": "\"before all\" hook",
+      "duration": 31,
       "currentRetry": 0,
-      "err": {}
+      "err": {
+        "stack": "error: database \"poker_handsdb\" does not exist\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
+        "message": "database \"poker_handsdb\" does not exist",
+        "name": "error",
+        "length": 91,
+        "severity": "FATAL",
+        "code": "3D000",
+        "file": "postinit.c",
+        "line": "826",
+        "routine": "InitPostgres"
+      }
     },
     {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 63,
+      "title": "\"after all\" hook",
+      "fullTitle": "\"after all\" hook",
+      "duration": 0,
       "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid hand values",
-      "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 44,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/sessions POST fails with an empty request body",
-      "duration": 3,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid session values",
-      "fullTitle": "app /api/sessions POST succeeds with valid session values",
-      "duration": 7,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 5,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid table values",
-      "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 7,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/tags POST fails with an empty request body",
-      "duration": 2,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid tag values",
-      "fullTitle": "app /api/tags POST succeeds with valid tag values",
-      "duration": 12,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Hand saves a record to the database",
-      "duration": 10,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Session saves a record to the database",
-      "duration": 28,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Table saves a record to the database",
-      "duration": 4,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Session saves a record to the database",
-      "duration": 4,
-      "currentRetry": 0,
-      "err": {}
+      "err": {
+        "stack": "TypeError: Cannot read property 'close' of undefined\n    at Context.<anonymous> (test/index-test.js:19:10)",
+        "message": "Cannot read property 'close' of undefined"
+      }
     }
   ],
-  "pending": [],
-  "failures": [],
-  "passes": [
-    {
-      "title": "is a function",
-      "fullTitle": "app up is a function",
-      "duration": 1,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/hands POST fails with an empty request body",
-      "duration": 63,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid hand values",
-      "fullTitle": "app /api/hands POST succeeds with valid hand values",
-      "duration": 44,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/sessions POST fails with an empty request body",
-      "duration": 3,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid session values",
-      "fullTitle": "app /api/sessions POST succeeds with valid session values",
-      "duration": 7,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/tables POST fails with an empty request body",
-      "duration": 5,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid table values",
-      "fullTitle": "app /api/tables POST succeeds with valid table values",
-      "duration": 7,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "fails with an empty request body",
-      "fullTitle": "app /api/tags POST fails with an empty request body",
-      "duration": 2,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "succeeds with valid tag values",
-      "fullTitle": "app /api/tags POST succeeds with valid tag values",
-      "duration": 12,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Hand saves a record to the database",
-      "duration": 10,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Session saves a record to the database",
-      "duration": 28,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Table saves a record to the database",
-      "duration": 4,
-      "currentRetry": 0,
-      "err": {}
-    },
-    {
-      "title": "saves a record to the database",
-      "fullTitle": "Session saves a record to the database",
-      "duration": 4,
-      "currentRetry": 0,
-      "err": {}
-    }
-  ]
+  "passes": []
 }
