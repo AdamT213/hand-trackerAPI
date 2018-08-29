@@ -117,8 +117,6 @@ router.get('/session/:id', (req,res) => {
 });
 
 router.post('/sessions', (req, res) => {
-  if(_.isEmpty(req.body))
-    return res.sendStatus(400);
   Session
     .forge()
     .save()
