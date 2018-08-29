@@ -16,8 +16,7 @@ const db = knex(config[ENV]);
 
 // Initialize Express.
 const app = express();
-var router = express.Router();
-
+var router = express.Router(); 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(session({ secret: 'some secret' }));
@@ -25,7 +24,8 @@ app.use(flash());
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/api', router);
+app.use('/api', router); 
+router.use(cors())
 
 // Configure & Initialize Bookshelf & Knex.
 console.log(`Running in environment: ${ENV}`);
@@ -120,7 +120,7 @@ router.post('/sessions', (req, res) => {
   if(_.isEmpty(req.body))
     return res.sendStatus(400);
   Session
-    .forge(req.body)
+    .forge()
     .save()
     .then((session) => {
       res.json({id: session.id});
