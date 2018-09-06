@@ -80,7 +80,7 @@ router.post('/hands', (req, res) => {
     .forge(req.body)
     .save()
     .then((hand) => {
-      res.json({id: hand.id});
+      res.json({hand});
     })
     .catch((error) => {
       console.error(error);
@@ -164,7 +164,7 @@ router.post('/tables', (req, res) => {
     .forge(req.body)
     .save()
     .then((table) => {
-      res.json({id: table.id});
+      res.json({table});
     })
     .catch((error) => {
       console.error(error);
