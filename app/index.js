@@ -116,6 +116,21 @@ router.get('/session/:id', (req,res) => {
     });
 });
 
+router.patch('/session/:id', (req,res) => { 
+  let startTime = req.params.timeStamps;
+  let sessionDuration = Time.now() - startTime;
+  Session
+    .forge({id: req.params.id})
+    .save({isTermed: req.params.isTermed, duration: sessionDuration})
+    .then((session) => {
+      res.json(session);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+}); 
+
 router.post('/sessions', (req, res) => {
   Session
     .forge()
@@ -155,7 +170,20 @@ router.get('/table/:id', (req,res) => {
       console.error(error);
       return res.sendStatus(500);
     });
-});
+}); 
+
+router.patch('/table/:id', (req,res) => {
+  Table
+    .forge({id: req.params.id})
+    .save({isTermed: req.params.isTermed})
+    .then((table) => {
+      res.json(table);
+    })
+    .catch((error) => {
+      console.error(error);
+      return res.sendStatus(500);
+    });
+}); 
 
 router.post('/tables', (req, res) => {
   if(_.isEmpty(req.body))
