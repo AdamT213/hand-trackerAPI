@@ -119,7 +119,7 @@ router.get('/session/:id', (req,res) => {
 router.patch('/session/:id', (req,res) => { 
   Session
     .forge({id: req.params.id})
-    .save({isTermed: true, duration: Time.now() - Session.timestamps()})
+    .save({isTermed: true, duration: Time.now() - Session.created_at})
     .then((session) => {
       res.json(session);
     })
