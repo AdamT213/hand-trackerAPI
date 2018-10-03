@@ -126,7 +126,6 @@ router.patch('/session/:id', (req,res) => {
       res.json(session);
     })
     .catch((error) => {
-      console.log(Session.forge({id: req.params.id}).save({isTermed: true}))
       console.error(error);
       return res.sendStatus(500);
     });
@@ -137,7 +136,7 @@ router.post('/sessions', (req, res) => {
     .forge()
     .save()
     .then((session) => {
-      res.json({id: session.id});
+      res.json({session});
     })
     .catch((error) => {
       console.error(error);
