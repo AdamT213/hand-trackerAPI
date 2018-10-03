@@ -121,12 +121,12 @@ router.patch('/session/:id', (req,res) => {
   console.log(time.getTime()) 
   Session
     .forge({id: req.params.id})
-    console.log(Session)
     .save({isTermed: true, duration: time.getTime() - Session.created_at})
     .then((session) => {
       res.json(session);
     })
     .catch((error) => {
+      console.log(Session)
       console.error(error);
       return res.sendStatus(500);
     });
