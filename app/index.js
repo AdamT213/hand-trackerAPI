@@ -126,7 +126,7 @@ router.patch('/session/:id', (req,res) => {
       res.json(session);
     })
     .catch((error) => {
-      console.log(Session)
+      console.log(Session.forge({id: req.params.id}))
       console.error(error);
       return res.sendStatus(500);
     });
