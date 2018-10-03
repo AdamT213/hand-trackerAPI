@@ -121,7 +121,7 @@ router.patch('/session/:id', (req,res) => {
   console.log(time.getTime()) 
   Session
     .forge({id: req.params.id})
-    console.log(Session.created_at)
+    console.log(Session)
     .save({isTermed: true, duration: time.getTime() - Session.created_at})
     .then((session) => {
       res.json(session);
