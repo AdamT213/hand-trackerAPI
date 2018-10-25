@@ -122,8 +122,8 @@ router.patch('/session/:id', (req,res) => {
     .forge({id: req.params.id})
     .fetch()
     .then((session) => { 
-      console.log(time.getTime) 
-      console.log(session.created_at)
+      console.log(time.getTime()) 
+      console.log(session)
       return session.save({
         isTermed: true,
         duration: time.getTime() - session.created_at
