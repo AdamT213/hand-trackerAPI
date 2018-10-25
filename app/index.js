@@ -121,11 +121,11 @@ router.patch('/session/:id', (req,res) => {
   Session
     .forge({id: req.params.id})
     .fetch()
-    .then((session) => { 
+    .then((session) => {
       console.log(time.getTime())
       return session.save({
         isTermed: true,
-        duration: time.getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime()
+        duration: (time.getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000
       })
     })
     .then((session) => {
