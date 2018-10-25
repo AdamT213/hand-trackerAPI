@@ -116,16 +116,16 @@ router.get('/session/:id', (req,res) => {
     });
 });
 
-router.patch('/session/:id', (req,res) => {  
-  const time = new Date()  
+router.patch('/session/:id', (req,res) => {    
   Session
     .forge({id: req.params.id})
     .fetch()
     .then((session) => {
-      console.log(time.getTime())
+      console.log(time.getTime()) 
+      //to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
       return session.save({
         isTermed: true,
-        duration: parseInt((time.getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000)
+        duration: parseInt((new Date().getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000)
       })
     })
     .then((session) => {
