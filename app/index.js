@@ -123,10 +123,10 @@ router.patch('/session/:id', (req,res) => {
     .fetch()
     .then((session) => { 
       console.log(time.getTime()) 
-      console.log(session)
+      console.log(session.attributes.created_at)
       return session.save({
         isTermed: true,
-        duration: time.getTime() - session.created_at
+        duration: time.getTime() - session.attributes.created_at
       })
     })
     .then((session) => {
