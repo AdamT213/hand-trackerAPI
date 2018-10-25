@@ -125,7 +125,7 @@ router.patch('/session/:id', (req,res) => {
       console.log(time.getTime())
       return session.save({
         isTermed: true,
-        duration: (time.getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000
+        duration: parseInt((time.getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000)
       })
     })
     .then((session) => {
