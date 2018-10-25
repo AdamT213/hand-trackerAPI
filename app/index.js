@@ -121,7 +121,6 @@ router.patch('/session/:id', (req,res) => {
     .forge({id: req.params.id})
     .fetch()
     .then((session) => {
-      console.log(time.getTime()) 
       //to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
       return session.save({
         isTermed: true,
