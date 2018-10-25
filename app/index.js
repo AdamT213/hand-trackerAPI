@@ -117,11 +117,16 @@ router.get('/session/:id', (req,res) => {
 });
 
 router.patch('/session/:id', (req,res) => {  
-  const time = new Date() 
-  console.log(time.getTime()) 
+  const time = new Date()  
   Session
     .forge({id: req.params.id})
-    .save({isTermed: true, duration: time.getTime() - Session.created_at})
+    .fetch()
+    .then((session) => {
+      return session.save({
+        isTermed: true,
+        duration: time.getTime() - session.created_at
+      })
+    })
     .then((session) => {
       res.json(session);
     })
@@ -129,7 +134,7 @@ router.patch('/session/:id', (req,res) => {
       console.error(error);
       return res.sendStatus(500);
     });
-}); 
+});
 
 router.post('/sessions', (req, res) => {
   Session
