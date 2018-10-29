@@ -127,7 +127,8 @@ router.patch('/session/:id', (req,res) => {
         duration: parseInt((new Date().getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000)
       })
     })
-    .then((session) => {
+    .then((session) => { 
+      console.log(session)
       res.json(session);
     })
     .catch((error) => {
