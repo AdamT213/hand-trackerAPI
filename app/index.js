@@ -123,12 +123,11 @@ router.patch('/session/:id', (req,res) => {
     .then((session) => {
       //to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
       return session.save({
-        isTermed: true,
-        duration: parseInt((new Date().getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000)
+        duration: parseInt((new Date().getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,'/')).getTime())/60000),
+        isTermed: true
       })
     })
     .then((session) => { 
-      console.log(session)
       res.json(session);
     })
     .catch((error) => {
