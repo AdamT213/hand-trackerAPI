@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   return Promise.all([ 
     knex.schema.alterTable('hands', (tbl) => {
-      tbl.float('money_invested');
+      tbl.float('moneyInvested');
     })
   ]);
 };
