@@ -23,6 +23,7 @@
   "homepage": "https://github.com/AdamT213/hand-tracker#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "eslint": "^5.12.0",
     "mocha": "^5.2.0",
     "mocha-jsdom": "^2.0.0",
     "mocha-multi": "^1.0.1",

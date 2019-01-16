@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 2,
-    "start": "2018-08-28T21:36:22.724Z",
-    "end": "2018-08-28T21:36:22.828Z",
-    "duration": 104
+    "start": "2019-01-16T20:26:58.804Z",
+    "end": "2019-01-16T20:26:58.900Z",
+    "duration": 96
   },
   "tests": [],
   "pending": [],
@@ -15,7 +15,7 @@
     {
       "title": "\"before all\" hook",
       "fullTitle": "\"before all\" hook",
-      "duration": 31,
+      "duration": 55,
       "currentRetry": 0,
       "err": {
         "stack": "error: database \"poker_handsdb\" does not exist\n    at Connection.parseE (node_modules/pg/lib/connection.js:553:11)\n    at Connection.parseMessage (node_modules/pg/lib/connection.js:378:19)\n    at Socket.<anonymous> (node_modules/pg/lib/connection.js:119:22)\n    at addChunk (_stream_readable.js:263:12)\n    at readableAddChunk (_stream_readable.js:250:11)\n    at Socket.Readable.push (_stream_readable.js:208:10)\n    at TCP.onread (net.js:594:20)",
