@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/api", router); 
-router.use(cors())
+router.use(cors());
 
 // Configure & Initialize Bookshelf & Knex.
 console.log(`Running in environment: ${ENV}`);
@@ -119,15 +119,17 @@ router.get("/session/:id", (req,res) => {
 router.patch("/session/:id", (req,res) => {    
 	Session
 		.forge({id: req.params.id})
-		.fetch()
-		.then((session) => {
+		.fetch({withRelated: "tables"})
+		.then((session) => { 
+			console.log(session);
 			//to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
 			return session.save({
-				duration: parseInt((new Date().getTime() - new Date(session.attributes.created_at.toString().replace(/-/g,"/")).getTime())/60000),
+				duration: parseInt((new Date().getTime() - 
+				new Date(session.attributes.created_at.toString().replace(/-/g,"/")).getTime())/60000),
 				isTermed: true
-			})
+			});
 		})
-		.then((session) => { 
+		.then((session) => {
 			res.json(session);
 		})
 		.catch((error) => {
@@ -178,11 +180,10 @@ router.get("/table/:id", (req,res) => {
 }); 
 
 router.patch("/table/:id", (req,res) => {
-  Table
+	Table
 		.forge({id: req.params.id})
 		.save({isTermed: true})
-		.then((table) => { 
-      console.log(table);
+		.then((table) => {
 			res.json(table);
 		})
 		.catch((error) => {
