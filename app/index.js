@@ -129,16 +129,19 @@ router.patch("/session/:id", (req,res) => {
 					} 
 					amount += table.amount;
 				}); 
-			}
+			} 
+			console.log(`Amount ${amount}`);
 			//to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
 			return session.save({
 				duration: parseInt((new Date().getTime() - 
 				new Date(session.attributes.created_at.toString().replace(/-/g,"/")).getTime())/60000),
 				isTermed: true, 
-				amount: amount
+				amount: amount, 
+				status: (amount >= 0)
 			});
 		})
 		.then((session) => {
+			console.log(session);
 			res.json(session);
 		})
 		.catch((error) => {
