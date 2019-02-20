@@ -194,21 +194,24 @@ router.patch("/table/:id", (req,res) => {
 			table.relations.hands.forEach(hand => {
 				if (hand.status === 1) {
 					amount += hand.potSize - hand.moneyInvested;
-				} 
+				}
 				else {
 					amount -= hand.moneyInvested;
 				}
 			});
+			return  table.save({
+				isTermed: true, 
+				amount: amount
+			});
 		})
-		.save({isTermed: true, amount: amount})
 		.then((table) => {
 			res.json(table);
 		})
 		.catch((error) => {
 			console.error(error);
-			return res.sendStatus(500);
+			return res.sendStatus(500).body(error);
 		});
-}); 
+});
 
 router.post("/tables", (req, res) => {
 	if(_.isEmpty(req.body))
