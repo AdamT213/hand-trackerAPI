@@ -197,7 +197,8 @@ router.patch("/table/:id", (req,res) => {
 				}
 				else {
 					amount -= hand.moneyInvested;
-				}
+				} 
+				console.log(`Amount: ${amount}`);
 			});
 			return  table.save({
 				isTermed: true, 
