@@ -191,7 +191,8 @@ router.patch("/table/:id", (req,res) => {
 		.forge({id: req.params.id}) 
 		.fetch({withRelated: "hands"})
 		.then(table => {
-			table.relations.hands.forEach(hand => {
+			table.relations.hands.forEach(hand => { 
+				console.log(hand);
 				console.log(`Potsize: ${hand.potSize}     Money invested: ${hand.money_invested}`);
 				console.log(`Won: ${hand.status}`);
 				if (hand.status) { 
