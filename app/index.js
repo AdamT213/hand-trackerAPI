@@ -192,11 +192,13 @@ router.patch("/table/:id", (req,res) => {
 		.fetch({withRelated: "hands"})
 		.then(table => {
 			table.relations.hands.forEach(hand => {
-				if (hand.status === 1) {
-					amount += hand.potSize - hand.moneyInvested;
+				console.log(`Potsize: ${hand.potSize}     Money invested: ${hand.money_invested}`);
+				console.log(`Won: ${hand.status}`);
+				if (hand.status) { 
+					amount += hand.potSize - hand.money_invested;
 				}
 				else {
-					amount -= hand.moneyInvested;
+					amount -= hand.money_invested;
 				} 
 				console.log(`Amount: ${amount}`);
 			});
