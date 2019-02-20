@@ -127,7 +127,7 @@ router.patch("/session/:id", (req,res) => {
 					if (!table.attributes.isTermed)  {
 						throw new Error("1 or more open tables in session. Please leave all open tables.");
 					} 
-					amount += table.amount;
+					amount += table.attributes.amount;
 				}); 
 			} 
 			console.log(`Amount ${amount}`);
