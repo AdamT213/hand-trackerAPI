@@ -120,13 +120,14 @@ router.patch("/session/:id", (req,res) => {
 	Session
 		.forge({id: req.params.id})
 		.fetch({withRelated: "tables"})
-		.then((session) => { 
-			session.relations.tables.forEach(table => { 
-				console.log(table.attributes.isTermed);
-				if (!table.attributes.isTermed)  {
-					table.attributes.isTermed = true;
-				}
-			});
+		.then((session) => {  
+			if (session.relations.tables) {
+				session.relations.tables.forEach(table => {
+					if (!table.attributes.isTermed)  {
+						throw new Error("1 or more open tables in session. Please leave all open tables.");
+					}
+				}); 
+			}
 			//to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
 			return session.save({
 				duration: parseInt((new Date().getTime() - 
