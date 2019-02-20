@@ -207,7 +207,8 @@ router.patch("/table/:id", (req,res) => {
 				amount: amount
 			});
 		})
-		.then((table) => {
+		.then((table) => { 
+			console.log(table);
 			res.json(table);
 		})
 		.catch((error) => {
