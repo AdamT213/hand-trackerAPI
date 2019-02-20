@@ -121,7 +121,8 @@ router.patch("/session/:id", (req,res) => {
 		.forge({id: req.params.id})
 		.fetch({withRelated: "tables"})
 		.then((session) => { 
-			session.relations.tables.forEach(table => {
+			session.relations.tables.forEach(table => { 
+				console.log(table.attributes.isTermed);
 				if (!table.attributes.isTermed)  {
 					table.attributes.isTermed = true;
 				}
