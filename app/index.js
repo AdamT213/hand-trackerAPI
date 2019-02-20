@@ -140,7 +140,7 @@ router.patch("/session/:id", (req,res) => {
 		})
 		.catch((error) => {
 			console.error(error);
-			return res.sendStatus(500);
+			return res.sendStatus(500).body(error);
 		});
 });
 
