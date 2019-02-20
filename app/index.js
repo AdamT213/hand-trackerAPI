@@ -121,7 +121,11 @@ router.patch("/session/:id", (req,res) => {
 		.forge({id: req.params.id})
 		.fetch({withRelated: "tables"})
 		.then((session) => { 
-			session.relations.tables.forEach(table => console.log(table));
+			session.relations.tables.forEach(table => {
+				if (!table.attributes.isTermed)  {
+					table.attributes.isTermed = true;
+				}
+			});
 			//to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
 			return session.save({
 				duration: parseInt((new Date().getTime() - 
