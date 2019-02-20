@@ -121,18 +121,21 @@ router.patch("/session/:id", (req,res) => {
 		.forge({id: req.params.id})
 		.fetch({withRelated: "tables"})
 		.then((session) => {  
+			let amount = 0.0;
 			if (session.relations.tables) {
 				session.relations.tables.forEach(table => {
 					if (!table.attributes.isTermed)  {
 						throw new Error("1 or more open tables in session. Please leave all open tables.");
-					}
+					} 
+					amount += table.amount;
 				}); 
 			}
 			//to get duration: get current time via Date.getTime, and convert created at timestamp to date.getTime format. Then subtract and divide by number of milliseconds in a minute
 			return session.save({
 				duration: parseInt((new Date().getTime() - 
 				new Date(session.attributes.created_at.toString().replace(/-/g,"/")).getTime())/60000),
-				isTermed: true
+				isTermed: true, 
+				amount: amount
 			});
 		})
 		.then((session) => {
@@ -192,15 +195,12 @@ router.patch("/table/:id", (req,res) => {
 		.fetch({withRelated: "hands"})
 		.then(table => {
 			table.relations.hands.forEach(hand => {
-				console.log(`Potsize: ${hand.attributes.potSize}     Money invested: ${hand.attributes.money_invested}`);
-				console.log(`Won: ${hand.attributes.status}`);
 				if (hand.attributes.status) { 
 					amount += hand.attributes.potSize - hand.attributes.money_invested;
 				}
 				else {
 					amount -= hand.attributes.money_invested;
 				} 
-				console.log(`Amount: ${amount}`);
 			});
 			return  table.save({
 				isTermed: true, 
