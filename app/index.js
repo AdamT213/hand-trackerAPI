@@ -186,9 +186,21 @@ router.get("/table/:id", (req,res) => {
 }); 
 
 router.patch("/table/:id", (req,res) => {
+	let amount = 0.0; 
 	Table
-		.forge({id: req.params.id})
-		.save({isTermed: true})
+		.forge({id: req.params.id}) 
+		.fetch({withRelated: "hands"})
+		.then(table => {
+			table.relations.hands.forEach(hand => {
+				if (hand.status === 1) {
+					amount += hand.potSize - hand.moneyInvested;
+				} 
+				else {
+					amount -= hand.moneyInvested;
+				}
+			});
+		})
+		.save({isTermed: true, amount: amount})
 		.then((table) => {
 			res.json(table);
 		})
