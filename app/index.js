@@ -281,8 +281,11 @@ router.get("/tag/:id", (req,res) => {
 });
 
 router.post("/tags", (req, res) => {
+	var tag = _.find(Tag.fetchAll(), ["name", req.body]);
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
+	if(tag)
+		res.send(tag.id);
 	Tag
 		.forge(req.body)
 		.save()
