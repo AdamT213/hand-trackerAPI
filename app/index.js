@@ -280,13 +280,14 @@ router.get("/tag/:id", (req,res) => {
 		});
 });
 
-router.post("/tags", (req, res) => {
+router.post("/tags", async (req, res) => {
+	console.log(`reg.body: ${req.body.name}`);
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
 	var tag = Tag.query('where', 'name', '=', req.body.name).fetch();
 	if(tag) {
 		console.log(`Found tag: ${{name: tag.name, id: tag.id}}`);
-		return res.json(tag);
+		return res.json(await(tag));
 	}
 	Tag
 		.forge(req.body)
