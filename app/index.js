@@ -281,7 +281,7 @@ router.get("/tag/:id", (req,res) => {
 });
 
 router.post("/tags", (req, res) => {
-	var tag = Tag.query('where', 'name', '=', req.body.name).fetchOne();
+	var tag = Tag.query('where', 'name', '=', req.body.name).fetch();
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
 	if(tag) {
