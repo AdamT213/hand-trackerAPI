@@ -286,7 +286,7 @@ router.post("/tags", (req, res) => {
 		return res.sendStatus(400);
 	if(tag) {
 		console.log(`Found tag: ${tag}`);
-		res.json(tag);
+		return res.json(tag);
 	}
 	Tag
 		.forge(req.body)
@@ -295,10 +295,10 @@ router.post("/tags", (req, res) => {
 			console.log(`Created tag: ${tag}`);
 			res.json(tag);
 		})
-		.catch((error) => {
-			console.error(error);
-			return res.sendStatus(500);
-		});
+	.catch((error) => {
+		console.error(error);
+		return res.sendStatus(500);
+	});
 }); 
 
 router.get("/hands_tags", (req, res) => {
