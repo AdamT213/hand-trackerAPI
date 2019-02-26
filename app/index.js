@@ -281,10 +281,11 @@ router.get("/tag/:id", (req,res) => {
 });
 
 router.post("/tags", (req, res) => {
+	console.log(req.body);
 	var tag = _.find(Tag.fetchAll(), ["name", req.body]);
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
-	if(tag !== undefined) {
+	if(tag) {
 		console.log(`Found tag: ${tag}`);
 		res.json(tag);
 	}
