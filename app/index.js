@@ -290,7 +290,7 @@ router.post("/tags", (req, res) => {
 		.forge(req.body)
 		.save()
 		.then((tag) => {
-			res.json({id: tag.id});
+			res.json(tag);
 		})
 		.catch((error) => {
 			console.error(error);
