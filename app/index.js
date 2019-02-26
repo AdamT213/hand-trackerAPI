@@ -281,7 +281,7 @@ router.get("/tag/:id", (req,res) => {
 });
 
 router.post("/tags", (req, res) => {
-	var tag = Tag.findWhere({name: req.body.name});
+	var tag = Tag.fetchAll().findWhere({name: req.body.name});
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
 	if(tag) {
