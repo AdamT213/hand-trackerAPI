@@ -285,6 +285,7 @@ router.post("/tags", (req, res) => {
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
 	if(tag)
+		console.log(`Found tag: ${tag}`);
 		res.send(tag.id);
 	Tag
 		.forge(req.body)
