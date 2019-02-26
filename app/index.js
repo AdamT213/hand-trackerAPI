@@ -284,9 +284,9 @@ router.post("/tags", (req, res) => {
 	var tag = _.find(Tag.fetchAll(), ["name", req.body]);
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
-	if(tag)
+	if(tag !== undefined)
 		console.log(`Found tag: ${tag}`);
-		res.send(tag.id);
+		res.json(tag);
 	Tag
 		.forge(req.body)
 		.save()
