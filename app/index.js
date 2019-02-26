@@ -291,6 +291,7 @@ router.post("/tags", (req, res) => {
 		.forge(req.body)
 		.save()
 		.then((tag) => {
+			console.log(`Created tag: ${tag}`);
 			res.json(tag);
 		})
 		.catch((error) => {
