@@ -281,6 +281,7 @@ router.get("/tag/:id", (req,res) => {
 });
 
 router.post("/tags", async (req, res) => {
+	console.log(_.isEmpty(req.body));
 	if(_.isEmpty(req.body))
 		return res.sendStatus(400);
 	var tag = await Tag.query('where', 'name', '=', req.body.name).fetch();
