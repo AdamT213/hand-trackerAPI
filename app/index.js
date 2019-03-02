@@ -321,7 +321,7 @@ router.post("/hands_tags", (req, res) => {
 		.forge(req.body)
 		.save()
 		.then((hand_tag) => {
-			res.json("Successfully Created");
+			res.json(hand_tag);
 		})
 		.catch((error) => {
 			console.error(error);
