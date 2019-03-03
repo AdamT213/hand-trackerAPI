@@ -196,7 +196,7 @@ router.get("/tables", (req, res) => {
 router.get("/table/:id", (req,res) => {
 	Table
 		.forge({id: req.params.id})
-		.fetch({withRelated: ["session", "hands", "tables_tags"]})
+		.fetch({withRelated: ["session", "hands", "hands.hands_tags", "tables_tags"]})
 		.then((table) => {
 			if (_.isEmpty(table))
 				return res.sendStatus(404);
