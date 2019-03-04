@@ -121,7 +121,7 @@ router.delete("/session/:id", function (req, res) {
 router.get("/session/:id", (req,res) => {
 	Session
 		.forge({id: req.params.id})
-		.fetch({withRelated: ["tables", "sessions_tags"]})
+		.fetch({withRelated: ["tables", "tables.tables_tags", "sessions_tags"]})
 		.then((session) => {
 			if (_.isEmpty(session))
 				return res.sendStatus(404);
