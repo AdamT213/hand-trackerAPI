@@ -14,6 +14,7 @@ const totalAmount = session => {
 // fetch sessions from last 30 days
 const Last30DaySessionData = () => { 
     const sessions = Session.query('where', age('created_at', currentDay), '<', 2592000).fetch(); 
+    console.log(`sessions: ${sessions}`);
     // save data object with each date and total for the day
     const data = {};
     sessions.forEach(session => { 
