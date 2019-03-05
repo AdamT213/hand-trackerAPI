@@ -410,7 +410,7 @@ exports.up = (justBackend) => {
 
 // ***** Visualization Routes(will eventually go in own file)***** //
 
-const last30Days = require(".VisualizationRoutes/last30DaySessionData"); 
+const last30Days = require("./VisualizationRoutes/last30DaySessionData"); 
 
 router.get("/last30Days", (req, res) => {
     var data = last30Days();
