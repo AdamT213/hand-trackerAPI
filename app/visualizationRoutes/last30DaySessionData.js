@@ -5,7 +5,7 @@ const Session = require("../models/session");
 const monthAgo= new Date().getTime() - 2592000000;
 
 const time = timestamp => { 
-    new Date(timestamp).toString().replace(/-/g,"/").getTime()
+    return new Date(timestamp).toString().replace(/-/g,"/").getTime()
 }
 
 const totalAmount = session => { 
@@ -20,8 +20,8 @@ const Last30DaySessionData = async () => {
     const data = {};
     sessions.forEach(session => { 
         console.log(`made it this far`)
-        console.log(time(session.created_at))
-        console.log(time(monthAgo))
+        console.log(await time(session.created_at))
+        console.log(monthAgo)
         if (session.isTermed && time(session.created_at) > monthAgo) { 
             console.log('still with ya')
             if(data[new Date(session.created_at).toDateString()])
