@@ -31,8 +31,9 @@ console.log(`Running in environment: ${ENV}`);
 const last30Days = require("./last30DaySessionData"); 
 
 router.get("/last30Days", (req, res) => {
-	if (last30Days)
-		res.json(last30Days);
+    var data = last30Days();
+	if (data)
+		res.json(data);
 })
 .catch((error) => {
     console.error(error);
