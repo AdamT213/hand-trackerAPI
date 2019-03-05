@@ -415,10 +415,11 @@ const last30Days = require("./visualizationRoutes/last30DaySessionData");
 router.get("/last30Days", (req, res) => {
     var data = last30Days();
     console.log(`data: ${data}`);
-	if (data)
+	try {
 		res.json(data);
+	} 
+	catch(error) { 
+		console.error(error);
+		return res.sendStatus(500)
+	}
 })
-.catch((error) => {
-    console.error(error);
-    return res.sendStatus(500);
-});
