@@ -12,10 +12,10 @@ const totalAmount = session => {
     return session.status ? session.amount : -(session.amount);
 }
 
-// fetch sessions from last 30 days
 const Last30DaySessionData = async () => { 
     try {
-    const sessions = Session.fetchAll(); 
+    const sessions = await Session.fetchAll(); 
+    console.log(`sessions: ${sessions}`);
     // save data object with each date and total for the day
     const data = {};
     sessions.forEach(session => { 
