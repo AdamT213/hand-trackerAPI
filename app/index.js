@@ -412,8 +412,8 @@ exports.up = (justBackend) => {
 
 const last30Days = require("./visualizationRoutes/last30DaySessionData"); 
 
-router.get("/last30Days", (req, res) => {
-    var data = last30Days();
+router.get("/last30Days", async (req, res) => {
+    var data = await last30Days();
     console.log(`data: ${data}`);
 	try {
 		res.json(data);
