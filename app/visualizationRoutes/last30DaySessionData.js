@@ -17,9 +17,9 @@ const Last30DaySessionData = async () => {
     const sessions = await Session.fetchAll(); 
     // save data object with each date and total for the day
     const data = {};
-    sessions.forEach(session => {
+    sessions.forEach(async session => {
         console.log(`made it this far`)
-        console.log(time(session.created_at))
+        console.log(await time(session.created_at))
         console.log(monthAgo)
         if (session.isTermed && time(session.created_at) > monthAgo) { 
             console.log('still with ya')
