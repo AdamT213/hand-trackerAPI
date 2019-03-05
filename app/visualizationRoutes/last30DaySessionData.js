@@ -11,7 +11,7 @@ const totalAmount = session => {
 // fetch sessions from last 30 days
 const Last30DaySessionData = async () => { 
     try {
-    const sessions = await Session.query('where', new Date('created_at').getTime(), '>', monthAgo).fetch(); 
+    const sessions = await Session.query('where', 'timestamp', '>', monthAgo).fetch();
     console.log(`sessions: ${sessions}`);
     // save data object with each date and total for the day
     const data = {};
