@@ -20,7 +20,7 @@ const Last30DaySessionData = async () => {
     const data = {};
     sessions.forEach(session => { 
         console.log(`made it this far`)
-        console.log(await time(session.created_at))
+        console.log(await (time(session.created_at)))
         console.log(monthAgo)
         if (session.isTermed && time(session.created_at) > monthAgo) { 
             console.log('still with ya')
