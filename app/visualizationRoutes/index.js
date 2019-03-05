@@ -32,6 +32,7 @@ const last30Days = require("./last30DaySessionData");
 
 router.get("/last30Days", (req, res) => {
     var data = last30Days();
+    console.log(`data: ${data}`);
 	if (data)
 		res.json(data);
 })
