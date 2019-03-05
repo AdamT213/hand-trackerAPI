@@ -2,10 +2,7 @@ const Session = require("../models/session");
 
 // calculate how long ago session was started
 
-const currentDay = new Date().getTime();
-const age = (date, current) => { 
-    return current - (new Date(date).getTime());
-} 
+const monthAgo= new Date().getTime() - 2592000000;
 
 const totalAmount = session => { 
     return session.status ? session.amount : -(session.amount);
@@ -13,7 +10,8 @@ const totalAmount = session => {
 
 // fetch sessions from last 30 days
 const Last30DaySessionData = async () => { 
-    const sessions = await Session.query('where', new Date().getTime()- new Date('created_at').getTime(), '<', 2592000).fetch(); 
+    try {
+    const sessions = await Session.query('where', new Date('created_at').getTime(), '>', monthAgo).fetch(); 
     console.log(`sessions: ${sessions}`);
     // save data object with each date and total for the day
     const data = {};
@@ -24,6 +22,9 @@ const Last30DaySessionData = async () => {
             data[new Date(session.created_at).toDateString()] = totalAmount(session);
         }
     }); 
+    } catch (error) {
+        console.error(error);
+    }
     return data;
 }
 
