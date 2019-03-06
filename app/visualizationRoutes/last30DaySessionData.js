@@ -31,13 +31,13 @@ const Last30DaySessionData = async () => {
             dataforDay = data.find(datum => datum.date === date);
             if (dataforDay)
                 dataforDay.amount += totalAmount(session)
-            else {
+            else { 
+                console.log('that didnt happen')
                 datum = {date: date,  amount: totalAmount(session)}
                 data.push(datum);
             }
         }
     });
-    console.log(`data: ${data}`);
     return data;
     } catch (error) {
         console.error(error);
