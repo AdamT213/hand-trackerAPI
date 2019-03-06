@@ -20,8 +20,8 @@ const totalAmount = session => {
 }
 
 const Last30DaySessionData = async () => { 
+     try {
     const data = [];
-    try {
     const sessions = await Session.fetchAll(); 
     // save data object with each date and total for the day
     sessions.forEach(async session => {
@@ -37,7 +37,7 @@ const Last30DaySessionData = async () => {
             }
         }
     });
-    return data;
+    return await data;
     } catch (error) {
         console.error(error);
     }
