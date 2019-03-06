@@ -20,10 +20,10 @@ const totalAmount = session => {
 }
 
 const Last30DaySessionData = async () => { 
+    const data = [];
     try {
     const sessions = await Session.fetchAll(); 
     // save data object with each date and total for the day
-    const data = [];
     sessions.forEach(async session => {
         var created = await time(session.attributes.created_at);
         if (session.attributes.isTermed && created > monthAgo) { 
@@ -32,7 +32,6 @@ const Last30DaySessionData = async () => {
             if (dataforDay)
                 dataforDay.amount += totalAmount(session)
             else { 
-                console.log('that didnt happen')
                 datum = {date: date,  amount: totalAmount(session)}
                 data.push(datum);
             }
