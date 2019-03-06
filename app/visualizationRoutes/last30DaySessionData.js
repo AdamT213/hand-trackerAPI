@@ -4,8 +4,10 @@ const Session = require("../models/session");
 
 const monthAgo= new Date().getTime() - 2592000000;
 
-const time = async timestamp => { 
-    return await new Date(timestamp).toString().replace(/-/g,"/").getTime()
+const time = timestamp => { 
+    return new Promise(resolve, reject => { 
+        return resolve(new Date(timestamp).toString().replace(/-/g,"/").getTime())
+    });
 }
 
 const totalAmount = session => { 
