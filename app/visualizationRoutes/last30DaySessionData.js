@@ -37,6 +37,7 @@ const Last30DaySessionData = async () => {
             }
         }
     });
+    console.log(`data: ${data}`);
     return data;
     } catch (error) {
         console.error(error);
