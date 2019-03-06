@@ -16,7 +16,7 @@ const time = timestamp => {
 }
 
 const totalAmount = session => { 
-    return session.status ? session.amount : -(session.amount);
+    return session.attributes.status ? session.attributes.amount : -(session.attributes.amount);
 }
 
 const Last30DaySessionData = async () => { 
@@ -35,7 +35,7 @@ const Last30DaySessionData = async () => {
             console.log(datum);
             data.push(datum);
         }
-    }); 
+    });
     return data;
     } catch (error) {
         console.error(error);
