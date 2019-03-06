@@ -25,13 +25,11 @@ const Last30DaySessionData = async () => {
     sessions.forEach(async session => {
         console.log(`made it this far`)
         var created = await time(session.attributes.created_at);
-        console.log(`created: ${created}`)
-        console.log(monthAgo)
         if (session.attributes.isTermed && created > monthAgo) { 
             console.log('still with ya')
-            if(data[new Date(session.created_at).toDateString()])
-                data[new Date(session.created_at).toDateString()] += totalAmount(session);
-            data[new Date(session.created_at).toDateString()] = totalAmount(session);
+            if(data[new Date(session.attributes.created_at).toDateString()])
+                data[new Date(session.attributes.created_at).toDateString()] += totalAmount(session);
+            data[new Date(session.attributes.created_at).toDateString()] = totalAmount(session);
         }
     }); 
     } catch (error) {
