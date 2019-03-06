@@ -26,7 +26,7 @@ const Last30DaySessionData = async () => {
         console.log(`made it this far`)
         var created = await time(session.attributes.created_at);
         console.log(`created: ${created}`)
-        // console.log(monthAgo)
+        console.log(monthAgo)
         if (session.attributes.isTermed && created > monthAgo) { 
             console.log('still with ya')
             if(data[new Date(session.created_at).toDateString()])
