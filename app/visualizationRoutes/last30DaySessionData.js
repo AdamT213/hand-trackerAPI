@@ -6,7 +6,7 @@ const monthAgo= new Date().getTime() - 2592000000;
 
 const time = timestamp => { 
     return new Promise(resolve => { 
-        var created = new Date(timestamp).toString().replace(/-/g,"/").getTime(); 
+        var created = new Date(timestamp.toString().replace(/-/g,"/")).getTime(); 
         resolve(created);
     }).catch(error => { 
         console.error(error);
