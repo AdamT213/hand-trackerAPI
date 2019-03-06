@@ -5,8 +5,9 @@ const Session = require("../models/session");
 const monthAgo= new Date().getTime() - 2592000000;
 
 const time = timestamp => { 
-    return new Promise(resolve, reject => { 
-        resolve(new Date(timestamp).toString().replace(/-/g,"/").getTime())
+    return new Promise(resolve => { 
+        var created = new Date(timestamp).toString().replace(/-/g,"/").getTime(); 
+        resolve(created);
     });
 }
 
